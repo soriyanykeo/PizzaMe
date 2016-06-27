@@ -26,6 +26,8 @@
 		23C6F6B81D21A78B00881783 /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6B71D21A78B00881783 /* CategoryViewModelTests.swift */; };
 		23C6F6BA1D21A91A00881783 /* RestaurantViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6B91D21A91A00881783 /* RestaurantViewModelTests.swift */; };
 		23C6F6BC1D21B1BD00881783 /* GetJSONRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6BB1D21B1BD00881783 /* GetJSONRequestTests.swift */; };
+		23E303C61D21CE000067068F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E303C41D21CE000067068F /* Fabric.framework */; };
+		23E303C71D21CE020067068F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E303C51D21CE000067068F /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		23C6F6B71D21A78B00881783 /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
 		23C6F6B91D21A91A00881783 /* RestaurantViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewModelTests.swift; sourceTree = "<group>"; };
 		23C6F6BB1D21B1BD00881783 /* GetJSONRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJSONRequestTests.swift; sourceTree = "<group>"; };
+		23E303C41D21CE000067068F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		23E303C51D21CE000067068F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			files = (
 				231EA17D1D1C988E00BA4365 /* MapKit.framework in Frameworks */,
 				231EA1771D1C853100BA4365 /* CoreLocation.framework in Frameworks */,
+				23E303C71D21CE020067068F /* Crashlytics.framework in Frameworks */,
+				23E303C61D21CE000067068F /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +103,6 @@
 		231EA1401D1C761200BA4365 = {
 			isa = PBXGroup;
 			children = (
-				231EA17C1D1C988E00BA4365 /* MapKit.framework */,
-				231EA1761D1C853100BA4365 /* CoreLocation.framework */,
 				231EA14B1D1C761200BA4365 /* PizzaMe */,
 				231EA1601D1C761200BA4365 /* PizzaMeTests */,
 				231EA14A1D1C761200BA4365 /* Products */,
@@ -117,6 +121,7 @@
 		231EA14B1D1C761200BA4365 /* PizzaMe */ = {
 			isa = PBXGroup;
 			children = (
+				23E303C81D21CE0E0067068F /* Libraries */,
 				230812C91D20BFDA00DF1543 /* ViewModel */,
 				231EA1731D1C83A800BA4365 /* DataStructures */,
 				231EA1701D1C76E000BA4365 /* Utitlities */,
@@ -169,6 +174,17 @@
 			name = DataStructures;
 			sourceTree = "<group>";
 		};
+		23E303C81D21CE0E0067068F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				231EA17C1D1C988E00BA4365 /* MapKit.framework */,
+				231EA1761D1C853100BA4365 /* CoreLocation.framework */,
+				23E303C41D21CE000067068F /* Fabric.framework */,
+				23E303C51D21CE000067068F /* Crashlytics.framework */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +195,7 @@
 				231EA1451D1C761200BA4365 /* Sources */,
 				231EA1461D1C761200BA4365 /* Frameworks */,
 				231EA1471D1C761200BA4365 /* Resources */,
+				23E303C31D21CDCA0067068F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +282,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23E303C31D21CDCA0067068F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 6c838cfcee6da2a30af31bb4001c62029714ec68 1b187f0ad607ba16c75ef1d28fcc4796ec1008c516fd7270eabbd2ad2562899a";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		231EA1451D1C761200BA4365 /* Sources */ = {
@@ -414,6 +447,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PizzaMe",
+				);
 				INFOPLIST_FILE = PizzaMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -429,6 +466,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PizzaMe",
+				);
 				INFOPLIST_FILE = PizzaMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
