@@ -417,7 +417,7 @@
 				INFOPLIST_FILE = PizzaMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.allure-energy.PizzaMe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soriyany.PizzaMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -432,7 +432,7 @@
 				INFOPLIST_FILE = PizzaMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.allure-energy.PizzaMe";
+				PRODUCT_BUNDLE_IDENTIFIER = com.soriyany.PizzaMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
