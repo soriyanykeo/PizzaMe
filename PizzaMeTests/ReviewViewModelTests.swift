@@ -30,12 +30,32 @@ class ReviewViewModelTests: XCTestCase {
         reviewWithRatingsObject.setValue("1296746913", forKey: "LastReviewDate")
         reviewWithRatingsObject.setValue("This place was great!", forKey: "LastReviewIntro")
         reviewWithRatings = Review(reviewObject: reviewWithRatingsObject)
-        print(reviewWithRatings.lastReviewIntro)
     }
-    func testTotalReviews() {
+    func testLastReviewDateIsNotNil(){
+        XCTAssertTrue(reviewWithRatings.lastReviewDate != nil, "LastReviewDate is not Nil")
+    }
+    func testLastReviewDateIsNil(){
+        XCTAssertNil(reviewWithNoRatings.lastReviewDate, "LastReviewDate is Nil")
+    }
+    func testLastReviewIntroIsNotNil(){
+        XCTAssertTrue(reviewWithRatings.lastReviewIntro != nil, "LastReviewIntro is not Nil")
+    }
+    func testLastReviewIntroIsNil(){
+        XCTAssertNil(reviewWithNoRatings.lastReviewIntro, "LastReviewIntro is Nil")
+    }
+    func testTotalRatingsIsZero(){
+        XCTAssertTrue(Int(reviewWithNoRatings.totalReviews!) == 0, "totalReviews is 0")
+    }
+    func testTotalRatingsIsNotZero(){
+        XCTAssertTrue(Int(reviewWithRatings.totalReviews!) == 15, "totalReviews is 15")
+    }
+    func testReviewRateDisplayTextWithNoReview() {
         let reviewViewModel:ReviewViewModel = ReviewViewModel(review: reviewWithNoRatings)
         XCTAssert(reviewViewModel.reviewRateDisplayText == "No review", "no review")
         
-        print(reviewWithRatings.lastReviewIntro)
+    }
+    func testReviewRateDisplayTextWithReview() {
+        let reviewViewModel:ReviewViewModel = ReviewViewModel(review:reviewWithRatings)
+        XCTAssert(reviewViewModel.reviewRateDisplayText == "5 stars 15 reviews.", "5 stars 15 reviews")
     }
 }

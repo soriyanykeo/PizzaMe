@@ -20,11 +20,12 @@
 		231EA1721D1C771100BA4365 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EA1711D1C771100BA4365 /* Constants.swift */; };
 		231EA1751D1C83DB00BA4365 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EA1741D1C83DB00BA4365 /* Restaurant.swift */; };
 		231EA1771D1C853100BA4365 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231EA1761D1C853100BA4365 /* CoreLocation.framework */; };
-		231EA17B1D1C939100BA4365 /* CurrentLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EA17A1D1C939100BA4365 /* CurrentLocationManager.swift */; };
 		231EA17D1D1C988E00BA4365 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231EA17C1D1C988E00BA4365 /* MapKit.framework */; };
 		233E48511D21501000FE62EB /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E48501D21501000FE62EB /* ReviewViewModel.swift */; };
-		23A600961D217B3C0098A7A1 /* RestaurantMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A600951D217B3C0098A7A1 /* RestaurantMock.swift */; };
-		23A6009D1D2187E40098A7A1 /* ReviewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6009C1D2187E40098A7A1 /* ReviewViewModelTest.swift */; };
+		23A6009D1D2187E40098A7A1 /* ReviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6009C1D2187E40098A7A1 /* ReviewViewModelTests.swift */; };
+		23C6F6B81D21A78B00881783 /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6B71D21A78B00881783 /* CategoryViewModelTests.swift */; };
+		23C6F6BA1D21A91A00881783 /* RestaurantViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6B91D21A91A00881783 /* RestaurantViewModelTests.swift */; };
+		23C6F6BC1D21B1BD00881783 /* GetJSONRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F6BB1D21B1BD00881783 /* GetJSONRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +56,12 @@
 		231EA1711D1C771100BA4365 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilitites/Constants.swift; sourceTree = "<group>"; };
 		231EA1741D1C83DB00BA4365 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = DataStructures/Restaurant.swift; sourceTree = "<group>"; };
 		231EA1761D1C853100BA4365 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		231EA17A1D1C939100BA4365 /* CurrentLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationManager.swift; sourceTree = "<group>"; };
 		231EA17C1D1C988E00BA4365 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		233E48501D21501000FE62EB /* ReviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewViewModel.swift; path = ViewModel/ReviewViewModel.swift; sourceTree = "<group>"; };
-		23A600951D217B3C0098A7A1 /* RestaurantMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantMock.swift; path = MockObjects/RestaurantMock.swift; sourceTree = "<group>"; };
-		23A6009C1D2187E40098A7A1 /* ReviewViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewModelTest.swift; sourceTree = "<group>"; };
+		23A6009C1D2187E40098A7A1 /* ReviewViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewModelTests.swift; sourceTree = "<group>"; };
+		23C6F6B71D21A78B00881783 /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
+		23C6F6B91D21A91A00881783 /* RestaurantViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewModelTests.swift; sourceTree = "<group>"; };
+		23C6F6BB1D21B1BD00881783 /* GetJSONRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetJSONRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,6 @@
 				231EA1531D1C761200BA4365 /* Assets.xcassets */,
 				231EA1551D1C761200BA4365 /* LaunchScreen.storyboard */,
 				231EA1581D1C761200BA4365 /* Info.plist */,
-				231EA17A1D1C939100BA4365 /* CurrentLocationManager.swift */,
 			);
 			path = PizzaMe;
 			sourceTree = "<group>";
@@ -134,9 +135,11 @@
 		231EA1601D1C761200BA4365 /* PizzaMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				23A600971D217B4E0098A7A1 /* MockObjects */,
 				231EA1631D1C761200BA4365 /* Info.plist */,
-				23A6009C1D2187E40098A7A1 /* ReviewViewModelTest.swift */,
+				23A6009C1D2187E40098A7A1 /* ReviewViewModelTests.swift */,
+				23C6F6B71D21A78B00881783 /* CategoryViewModelTests.swift */,
+				23C6F6B91D21A91A00881783 /* RestaurantViewModelTests.swift */,
+				23C6F6BB1D21B1BD00881783 /* GetJSONRequestTests.swift */,
 			);
 			path = PizzaMeTests;
 			sourceTree = "<group>";
@@ -164,14 +167,6 @@
 				230812C51D20AEE900DF1543 /* Review.swift */,
 			);
 			name = DataStructures;
-			sourceTree = "<group>";
-		};
-		23A600971D217B4E0098A7A1 /* MockObjects */ = {
-			isa = PBXGroup;
-			children = (
-				23A600951D217B3C0098A7A1 /* RestaurantMock.swift */,
-			);
-			name = MockObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +280,6 @@
 				231EA1721D1C771100BA4365 /* Constants.swift in Sources */,
 				230812CD1D2149DB00DF1543 /* RestaurantViewModel.swift in Sources */,
 				233E48511D21501000FE62EB /* ReviewViewModel.swift in Sources */,
-				231EA17B1D1C939100BA4365 /* CurrentLocationManager.swift in Sources */,
 				230812C41D20A08500DF1543 /* PizzaDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,8 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23A600961D217B3C0098A7A1 /* RestaurantMock.swift in Sources */,
-				23A6009D1D2187E40098A7A1 /* ReviewViewModelTest.swift in Sources */,
+				23C6F6BA1D21A91A00881783 /* RestaurantViewModelTests.swift in Sources */,
+				23A6009D1D2187E40098A7A1 /* ReviewViewModelTests.swift in Sources */,
+				23C6F6BC1D21B1BD00881783 /* GetJSONRequestTests.swift in Sources */,
+				23C6F6B81D21A78B00881783 /* CategoryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

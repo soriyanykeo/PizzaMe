@@ -17,7 +17,7 @@ class GetJSONRequest {
         self.urlstring = url
     }
     
-    func getScheduleList(completionHandler: (NSArray?) -> ()) {
+    func getPizzaList(completionHandler: (NSArray?) -> ()) {
         if dataTask != nil {
             dataTask!.cancel()
         }
@@ -32,22 +32,19 @@ class GetJSONRequest {
                 }
                 else if let httpResponse = response as? NSHTTPURLResponse {
                     if httpResponse.statusCode == 200 {
-                        do {
-                            let list = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
-                            let arr:NSArray = list.valueForKey("query")!.valueForKey("results")!.valueForKey("Result") as! NSArray
+                        self.parseServerData(data!, response: response, error: error, completionHandler: { (dataDict) in
+                            let arr:NSArray = dataDict!.valueForKey("query")!.valueForKey("results")!.valueForKey("Result") as! NSArray
                             var resultArr = [RestaurantViewModel]()
                             for result in arr{
                                 let restaurantModel:RestaurantViewModel = RestaurantViewModel(restaurant: Restaurant(restaurantObject: result as! NSDictionary))
                                 resultArr.append(restaurantModel)
                             }
                             completionHandler(resultArr)
-                        }
-                        catch{
-                            completionHandler(nil)
-                        }
+                        })
                     }
                     else{
                         completionHandler(nil)
+                        print("server error.")
                     }
                 }
             }
@@ -55,5 +52,14 @@ class GetJSONRequest {
             dataTask!.resume()
         }
     }
-    
+    func parseServerData(data: NSData?, response: NSURLResponse?, error: NSError?,completionHandler: (NSDictionary?) -> ()) {
+        do {
+            let dataDict = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+            completionHandler(dataDict)
+        }
+        catch{
+            completionHandler(nil)
+            print("Unexpected data format provided by server.")
+        }
+    }
 }

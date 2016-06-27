@@ -53,7 +53,7 @@ class PizzaListViewController: UIViewController,UITabBarDelegate,UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let pizzaDetailVC:PizzaDetailViewController =  storyboard.instantiateViewControllerWithIdentifier("PizzaDetailVC") as! PizzaDetailViewController
-        pizzaDetailVC.res = data![indexPath.row] as! RestaurantViewModel
+        pizzaDetailVC.restaurantViewModel = data![indexPath.row] as! RestaurantViewModel
         self.navigationController?.pushViewController(pizzaDetailVC, animated: true)
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -63,10 +63,10 @@ class PizzaListViewController: UIViewController,UITabBarDelegate,UITableViewData
         let lon: Double = (locations.last?.coordinate.longitude)!
         let longitude : String = String(format:"%f", lon)
         
-        let url:String = "https://query.yahooapis.com/v1/public/yql?q=select * from local.search where latitude='\(latitude)' and longitude='\(longitude)' and query='pizza' | sort(field='Distance')&format=json&diagnostics=true&callback="
+        let url:String = REQUESTURL + "q=select * from local.search where latitude='\(latitude)' and longitude='\(longitude)' and query='pizza' | sort(field='Distance')&format=json&diagnostics=true&callback="
         
         let getJson:GetJSONRequest = GetJSONRequest(url: url)
-        getJson.getScheduleList { (results) in
+        getJson.getPizzaList { (results) in
             if results != nil{
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     self.dataCount = results!.count

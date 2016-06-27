@@ -10,34 +10,31 @@ import UIKit
 import CoreLocation
 import MapKit
 class PizzaDetailViewController: UIViewController{
-    var res:RestaurantViewModel!
+    var restaurantViewModel:RestaurantViewModel!
     
-    @IBOutlet weak var restaurantReviewLabel: UILabel!
     @IBOutlet weak var restaurantTypeLabel: UILabel!
-    
     @IBOutlet weak var restaurantAddress: UILabel!
-    @IBOutlet weak var restaurantCityStateLabel: UILabel!
-    
     @IBOutlet weak var restaurantDistanceLabel: UILabel!
+    @IBOutlet weak var restaurantReviewLabel: UILabel!
+    @IBOutlet weak var restaurantReviewIntroLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = res.nameText
-        restaurantReviewLabel.text = res.reviewViewModel?.reviewRateDisplayText
-        restaurantCityStateLabel.text = res.reviewViewModel?.reviewIntroDisplayText
-        restaurantTypeLabel.text = res.categoryViewModel?.contentView
+        self.navigationItem.title = restaurantViewModel.nameText
+        restaurantTypeLabel.text = restaurantViewModel.categoryViewModel?.contentView
+        restaurantAddress.text = restaurantViewModel.addressLongText
+        restaurantDistanceLabel.text = restaurantViewModel.distanceText
         
-        restaurantAddress.text = res.addressLongText
-        restaurantDistanceLabel.text = res.distanceText
-        
-        print(res.categoryViewModel?.contentView)
+        restaurantReviewLabel.text = restaurantViewModel.reviewViewModel?.reviewRateDisplayText
+        restaurantReviewIntroLabel.text = restaurantViewModel.reviewViewModel?.reviewIntroDisplayText
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     @IBAction func actionCallBttn(sender: AnyObject) {
-        if let url = NSURL(string:"tel://5124330984") {
+        if let url = NSURL(string:restaurantViewModel.phoneNumberForCallText!) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
@@ -49,18 +46,18 @@ class PizzaDetailViewController: UIViewController{
     }
     func openMapForDirection() {
         let regionDistance:CLLocationDistance = 10000
-        let regionSpan = MKCoordinateRegionMakeWithDistance(res.location!, regionDistance, regionDistance)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(restaurantViewModel.location!, regionDistance, regionDistance)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
             MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
         ]
-        let placemark = MKPlacemark(coordinate: res.location!, addressDictionary: nil)
+        let placemark = MKPlacemark(coordinate: restaurantViewModel.location!, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = res.nameText
+        mapItem.name = restaurantViewModel.nameText
         mapItem.openInMapsWithLaunchOptions(options)
     }
     func openWebsiteForPizzaPlace() {
-        if let url = NSURL(string: res.businessUrl!) {
+        if let url = NSURL(string: restaurantViewModel.businessUrl!) {
             UIApplication.sharedApplication().openURL(url)
         }
     }
